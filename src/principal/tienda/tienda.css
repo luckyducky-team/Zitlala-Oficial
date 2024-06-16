@@ -1,5 +1,5 @@
 body {
-    background-image: url("/image/fondoTiendaAzul.jpg");
+    background-image: url("/src/principal/image/fondoTiendaAzul.jpg");
     display: flex;
     align-items: center;
     height: 100vh;

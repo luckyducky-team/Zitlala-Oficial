@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/principal"],
+  "include": ["src/principal", "src/Inicio.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
