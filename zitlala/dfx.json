@@ -1,0 +1,10 @@
+{
+    "canisters": {
+        "backend": {
+            "type": "azle",
+            "main": "src/backend/index.ts",
+            "assets": [["src/frontend/dist", "dist"]],
+            "build_assets": "npm run build"
+        }
+    }
+}
