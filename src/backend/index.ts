@@ -1,4 +1,5 @@
 import express, { Request } from 'express';
+import { ic } from 'azle';
 
 let db = {
     hello: ''
@@ -16,6 +17,10 @@ app.post('/db/update', (req: Request<any, any, typeof db>, res) => {
     db = req.body;
 
     res.json(db);
+});
+
+app.get('/whoami', (req, res) => {
+    res.send(ic.caller().toString());
 });
 
 app.use(express.static('/dist'));
