@@ -9,6 +9,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <InternetIdentityProvider>
       <App />
     </InternetIdentityProvider>
-    
   </React.StrictMode>,
 )
