@@ -1,20 +1,13 @@
 //import { useState } from 'react'
 import './App.css'
+import { useInternetIdentity } from "ic-use-internet-identity";
 
 function Inicio() {
 
-  const openNewTab = () => {
-    const newTabUrl = "/whoami"; // Reemplaza con la URL de tu componente
-    window.open(newTabUrl, '_blank');
-  };
+  const { login, identity } = useInternetIdentity();
 
   const openStore = () => {
     const newTabUrl = './src/principal/tienda/tienda.html'; // Reemplaza con la URL de tu componente
-    window.open(newTabUrl, '_blank');
-  };
-
-  const openJuego = () => {
-    const newTabUrl = './src/principal/casa/casa.html'; // Reemplaza con la URL de tu componente
     window.open(newTabUrl, '_blank');
   };
 
@@ -35,13 +28,18 @@ function Inicio() {
 
         <div className="botones" style={{ cursor: 'pointer' }}>
 
-          <button onClick={openNewTab}>JUGAR</button>
+          <button onClick={login} >JUGAR</button>
 
           <button onClick={openStore}>TIENDA</button>
-
-          <button onClick={openJuego}>CASA</button>
+         
+          {identity && <p>Logged in as {identity.getPrincipal().toText()}</p>}
 
         </div>
+
+        <div>
+      
+       
+    </div>
 
           <span></span>
           <span></span>
@@ -51,7 +49,7 @@ function Inicio() {
 
       <footer>
         <div className='footer01'>
-          <h6 className="piedepag">Derechos reservados de copy right</h6>
+          <h6 className="piedepag">Copyright (c) 2024 LuckyDucky Team MIT License </h6>
         </div>
         
       </footer>
@@ -60,5 +58,4 @@ function Inicio() {
   )
 }
        
-
-export default Inicio ;
+export default Inicio;
