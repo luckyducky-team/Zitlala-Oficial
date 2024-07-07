@@ -61,8 +61,6 @@ echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
 
 ```bash
 
-cd zitlala
-
 npm install
 
 npx azle install-dfx-extension
@@ -75,8 +73,6 @@ In a separate terminal in the `zitlala` directory:
 
 ```bash
 
-cd zitlala
-
 rm -rf node_modules
 
 npm install
@@ -86,4 +82,16 @@ npx azle clean
 AZLE_VERBOSE=true dfx deploy
 
 ```
+### Running Frontend locally
+
+```bash
+
+cd src/frontend
+
+npm install
+
+npm run dev
+
+```
+
 
