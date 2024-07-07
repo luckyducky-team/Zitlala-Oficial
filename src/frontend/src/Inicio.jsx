@@ -1,5 +1,5 @@
 import './Inicio.css';
-import App from './principal/login/App.jsx';
+
 
 
 
@@ -7,7 +7,7 @@ import App from './principal/login/App.jsx';
 function Inicio() {
 
   const openNewTab = () => {
-    const newTabUrl = <App.jsx/>; // Reemplaza con la URL de tu componente
+    const newTabUrl = <index.ts/>; // Reemplaza con la URL de tu componente
     window.open(newTabUrl, '_blank');
   };
 
