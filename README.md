@@ -1,30 +1,89 @@
-# React + TypeScript + Vite
+# Zitala - Oficial
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
 
-Currently, two official plugins are available:
+> Windows is only supported through a Linux virtual environment of some kind, such as [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+On Ubuntu/WSL:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+sudo apt-get update
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+```bash
+sudo apt-get install podman
+```
+
+On Mac:
+
+```bash
+brew install podman
+```
+
+It's recommended to use nvm and Node.js 20:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+Restart your terminal and then run:
+
+```bash
+nvm install 20
+```
+
+Check that the installation went smoothly by looking for clean output from the following command:
+
+```bash
+node --version
+```
+
+Install the dfx command line tools for managing ICP applications:
+
+```bash
+DFX_VERSION=0.20.1 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+```
+
+Check that the installation went smoothly by looking for clean output from the following command:
+
+```bash
+dfx --version
+```
+
+If after trying to run `dfx --version` you encounter an error such as `dfx: command not found`, you might need to add `$HOME/bin` to your path. Here's an example of doing this in your `.bashrc`:
+
+```bash
+echo 'export PATH="$PATH:$HOME/bin"' >> "$HOME/.bashrc"
+```
+
+## Deployment
+
+```bash
+
+cd zitlala
+
+npm install
+
+npx azle install-dfx-extension
+
+dfx start --clean --host 127.0.0.1:8000
+
+```
+
+In a separate terminal in the `zitlala` directory:
+
+```bash
+
+cd zitlala
+
+rm -rf node_modules
+
+npm install
+
+npx azle clean
+
+AZLE_VERBOSE=true dfx deploy
+
+```
+
