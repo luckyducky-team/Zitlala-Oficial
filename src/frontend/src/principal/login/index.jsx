@@ -1,17 +1,17 @@
-import { Identity } from '@dfinity/agent';
 import { AuthClient } from '@dfinity/auth-client';
 import { toJwt } from 'azle/http_client';
 import { html, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 
+
 @customElement('azle-app')
 export class AzleApp extends LitElement {
-    @property()
-    identity: Identity | null = null;
+    // Remove the type annotation since it is not valid in a JavaScript file
+    identity = null;
 
     @property()
-    whoami: string = '';
+    whoami = '';
 
     connectedCallback() {
         super.connectedCallback();
@@ -29,15 +29,15 @@ export class AzleApp extends LitElement {
         }
     }
 
-    handleIsAuthenticated(authClient: AuthClient) {
+    handleIsAuthenticated(authClient) {
         this.identity = authClient.getIdentity();
     }
 
-    async handleIsNotAuthenticated(authClient: AuthClient) {
+    async handleIsNotAuthenticated(authClient) {
         await new Promise((resolve, reject) => {
             authClient.login({
                 identityProvider: import.meta.env.VITE_IDENTITY_PROVIDER,
-                onSuccess: resolve as () => void,
+                onSuccess: resolve,
                 onError: reject,
                 windowOpenerFeatures: `width=500,height=500`
             });
