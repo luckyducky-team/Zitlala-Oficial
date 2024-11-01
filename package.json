@@ -8,7 +8,7 @@
         "@dfinity/agent": "^1.4.0",
         "@dfinity/auth-client": "^1.4.0",
         "azle": "^0.22.0",
-        "express": "^4.18.2",
+        "express": "^4.21.1",
         "ic-use-internet-identity": "^0.0.10",
         "lit": "^3.1.2"
     },
